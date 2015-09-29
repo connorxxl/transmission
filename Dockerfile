@@ -10,10 +10,10 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean
 
-RUN mkdir /config && \
-  mkdir /volumes/complete && \
-  mkdir /volumes/incomplete && \
-  mkdir /volumes/watch
+RUN mkdir -p /config && \
+  mkdir -p /volumes/complete && \
+  mkdir -p /volumes/incomplete && \
+  mkdir -p /volumes/watch
 
 EXPOSE 9091 51414/tcp 51414/udp
 
