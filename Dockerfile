@@ -25,5 +25,4 @@ VOLUME ["/volumes/watch"]
 ENV TRANSMISSION_HOME /config
 
 ENTRYPOINT ["/usr/bin/transmission-daemon"]
-#CMD [ "--allowed", "0.0.0.0", "--encryption-preferred", "--foreground", "--dht", "--no-auth", "--config-dir", "$TRANSMISSION_HOME", "--watch-dir", "/volumes/watch", "--incomplete-dir", "/volumes/incomplete", "--download-dir", "/volumes/complete" ]
-CMD [ "--allowed", "*.*.*.*", "--encryption-preferred", "--foreground", "--dht", "--no-auth" ]
+CMD [ "--allowed", "*.*.*.*", "--encryption-preferred", "--foreground", "--dht", "--no-auth", "--watch-dir", "/volumes/watch", "--incomplete-dir", "/volumes/incomplete", "--download-dir", "/volumes/complete" ]
