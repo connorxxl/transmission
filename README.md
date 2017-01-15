@@ -1,7 +1,7 @@
 # Transmission for Docker
 This image (like all other of my images) is created to run on Synology Docker. I've tried to keep the images clean (so proper config volumes and always the same external volumes).
 
-Image is based on Ubuntu 14.04 LTS.
+Image is based on Ubuntu 16.04 LTS.
 
 ### Volumes
 - /config
