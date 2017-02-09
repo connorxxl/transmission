@@ -10,6 +10,9 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean
 
+ENV GROUPID=800
+ENV USERID=800
+
 RUN groupadd -r -g $GROUPID transmission && \\
     useradd -r -u $USERID -g transmission transmission
 
