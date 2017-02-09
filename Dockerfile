@@ -13,8 +13,7 @@ RUN apt-get update && \
 ENV GROUPID=1100
 ENV USERID=1100
 
-RUN groupadd -g $GROUPID transmission
-RUN useradd -u $USERID -g transmission transmission
+RUN groupadd -g $GROUPID transmission && useradd -u $USERID -g transmission transmission
 
 RUN mkdir -p /config && chown -R transmission:transmission /config && \
   mkdir -p /volumes/complete && chown -R transmission:transmission /volumes/complete && \
