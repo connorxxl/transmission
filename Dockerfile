@@ -10,12 +10,13 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean
 
-RUN adduser transmission
+RUN groupadd -r -g $GROUPID transmission && \\
+    useradd -r -u $USERID -g transmission transmission
 
-RUN mkdir -p /config && \
-  mkdir -p /volumes/complete && \
-  mkdir -p /volumes/incomplete && \
-  mkdir -p /volumes/watch
+RUN mkdir -p /config && chown -R transmission:transmission /config && \
+  mkdir -p /volumes/complete && chown -R transmission:transmission /volumes/complete && \
+  mkdir -p /volumes/incomplete && chown -R transmission:transmission /volumes/incomplete && \
+  mkdir -p /volumes/watch && chown -R transmission:transmission /volumes/watch
 
 EXPOSE 9091 51414/tcp 51414/udp
 
@@ -23,6 +24,8 @@ VOLUME ["/config"]
 VOLUME ["/volumes/complete"]
 VOLUME ["/volumes/incomplete"]
 VOLUME ["/volumes/watch"]
+
+USER transmission
 
 ENV TRANSMISSION_HOME /config
 
