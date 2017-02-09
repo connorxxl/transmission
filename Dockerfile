@@ -10,11 +10,11 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean
 
-ENV GROUPID=800
-ENV USERID=800
+ENV GROUPID=1100
+ENV USERID=1100
 
-RUN groupadd -r -g $GROUPID transmission && \\
-    useradd -r -u $USERID -g transmission transmission
+RUN groupadd -g $GROUPID transmission
+RUN useradd -u $USERID -g transmission transmission
 
 RUN mkdir -p /config && chown -R transmission:transmission /config && \
   mkdir -p /volumes/complete && chown -R transmission:transmission /volumes/complete && \
