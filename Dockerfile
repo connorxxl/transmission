@@ -10,6 +10,8 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean
 
+RUN adduser transmission
+
 RUN mkdir -p /config && \
   mkdir -p /volumes/complete && \
   mkdir -p /volumes/incomplete && \
